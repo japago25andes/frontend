@@ -4,7 +4,7 @@ import { LEVELS, WORLDS } from '../data/levels.js';
 import { BADGES } from '../data/game.js';
 import { sfx } from '../lib/sound.js';
 
-export default function Welcome({ savedName, onStart, onContinue }) {
+export default function Welcome({ savedName, onStart, onContinue, onLoadFile }) {
   const [name, setName] = useState('');
 
   function submit(e) {
@@ -61,6 +61,12 @@ export default function Welcome({ savedName, onStart, onContinue }) {
             </div>
           </form>
         )}
+
+        <div className="welcome-load">
+          <button type="button" className="link-btn" onClick={onLoadFile}>
+            📂 ¿Vienes de otro equipo? Carga tu archivo de progreso
+          </button>
+        </div>
 
         <div className="feature-row">
           <div>🗺️<span>{WORLDS.length - 1} mundos · {LEVELS.length} niveles</span></div>

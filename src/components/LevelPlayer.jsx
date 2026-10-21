@@ -18,7 +18,7 @@ export function basePoints(level) {
   return level.boss ? 150 : level.project ? 120 : 100;
 }
 
-export default function LevelPlayer({ level, world, streak, onStreak, onFinish, onExit, onRetry, onNext, onCertificate, onCodeWin, alreadyDone, worldDone }) {
+export default function LevelPlayer({ level, world, streak, onStreak, onFinish, onExit, onRetry, onNext, onCertificate, onSave, onCodeWin, alreadyDone, worldDone }) {
   const [phase, setPhase] = useState('lesson');
   const [idx, setIdx] = useState(0);
   const [hearts, setHearts] = useState(MAX_HEARTS);
@@ -151,6 +151,7 @@ export default function LevelPlayer({ level, world, streak, onStreak, onFinish, 
             {worldDone && (
               <div className="world-stamp" style={{ '--level-color': world.color }}>
                 {world.icon} ¡Mundo {world.short} completado! Nuevo sello en tu credencial.
+                <div className="world-stamp-save">💾 Buen momento para guardar tu progreso.</div>
               </div>
             )}
             <div className="stars-big">
@@ -175,6 +176,7 @@ export default function LevelPlayer({ level, world, streak, onStreak, onFinish, 
             <div className="results-actions">
               <button className="btn btn-ghost" onClick={onRetry}>↻ Repetir</button>
               <button className="btn btn-ghost" onClick={onExit}>🗺️ Mapa</button>
+              <button className="btn btn-ghost" onClick={onSave}>💾 Guardar progreso</button>
               {onNext && <button className="btn btn-primary btn-lg glow" onClick={onNext}>Siguiente nivel →</button>}
               {level.boss && <button className="btn btn-primary btn-lg glow" onClick={onCertificate}>🎓 Ver diploma</button>}
             </div>

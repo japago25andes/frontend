@@ -250,3 +250,4 @@ a.btn { text-decoration: none; }
 /* El bloque del jugador en la barra superior es un botón (abre la credencial) */
 .hud-player { background: none; border: none; padding: 6px 10px; margin-left: 4px; border-radius: 14px; text-align: left; color: inherit; transition: background 0.2s; }
 .hud-player:hover { background: rgba(255, 255, 255, 0.06); }
+.world-stamp-save { margin-top: 4px; font-size: 14px; font-weight: 600; opacity: 0.85; }
